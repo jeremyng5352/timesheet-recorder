@@ -10,7 +10,22 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        h2 {
+            width: 100%;
+            text-align: center;
+            border-bottom: 2px solid transparentize($color: white, $amount: 0.7);
+            line-height: 0.1em;
+            color: transparentize($color: white, $amount: 0.7);
+            span {
+                background: $ivory-black;
+                padding: 0 10px;
+            }
+        }
         form {
+            input {
+                background: transparentize($color: $gold-leaf, $amount: 0.9);
+                border: transparentize($color: $gold-leaf, $amount: 0.8) solid 2px;
+            }
             button {
                 background: $gold-leaf;
                 color: $ivory-black;
