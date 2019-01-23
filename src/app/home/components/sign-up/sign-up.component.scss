@@ -18,6 +18,10 @@
         }
     }
     form {
+        div {
+            width: 100%;
+            text-align: left;
+        }
         input {
             background: transparentize($color: $sky-blue, $amount: 0.9);
             border: transparentize($color: $sky-blue, $amount: 0.8) solid 2px;
@@ -25,6 +29,10 @@
         button {
             background: $sky-blue;
             color: $ivory-black;
+        }
+        .form-alert {
+            color: red;
+            font-size: 0.8rem;
         }
     }
 }

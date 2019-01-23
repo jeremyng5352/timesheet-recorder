@@ -2,13 +2,72 @@
     <div class="row">
         <div class="col-3 mr-auto ml-auto">
             <h2 class="mb-5"><span>SIGN UP</span></h2>
-            <form [formGroup]="signupForm" class="mb-4" (ngSubmit)="login()">
-                <input formControlName="username" type="text" placeholder="Username" class="mb-4">
-                <input formControlName="password" type="text" placeholder="Password" class="mb-4">
-                <input formControlName="confirmPassword" type="text" placeholder="Confirm Password" class="mb-4">
-                <input formControlName="email" type="email" placeholder="Email Address" class="mb-4">
-                <input formControlName="phone" type="number" placeholder="Phone Number" class="mb-4">
-                <button>SIGN UP</button>
+            <form [formGroup]="signupForm" class="mb-4" (ngSubmit)="signup()">
+                <div class="mb-3">
+                    <input formControlName="username" type="text" placeholder="Username" required>
+                    <div *ngIf="signupForm.controls.username.invalid && (signupForm.controls.username.dirty || signupForm.controls.username.touched)" class="form-alert mt-1">
+                        <div *ngIf="signupForm.controls.username.errors.required">
+                            Username is required.
+                        </div>
+                        <div *ngIf="signupForm.controls.username.errors.minlength">
+                            Username must be at least 6 characters long.
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <input formControlName="password" type="password" placeholder="Password">
+                    <div *ngIf="signupForm.controls.password.invalid && (signupForm.controls.password.dirty || signupForm.controls.password.touched)" class="form-alert mt-1">
+                        <div *ngIf="signupForm.controls.password.errors.required">
+                            Password is required.
+                        </div>
+                        <div *ngIf="signupForm.controls.password.errors.minlength">
+                            Password must be at least 6 characters long.
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <input formControlName="confirmPassword" type="password" placeholder="Confirm Password" (keydown)="startPasswordMatching()">
+                    <div *ngIf="signupForm.controls.confirmPassword.invalid && (signupForm.controls.confirmPassword.dirty 
+                        || signupForm.controls.confirmPassword.touched)" class="form-alert mt-1">
+                        <div *ngIf="signupForm.controls.confirmPassword.errors.required">
+                            Confirm Password is required.
+                        </div>
+                        <!-- <div *ngIf="signupForm.controls.confirmPassword.errors.minlength">
+                            Confirm Password must be at least 6 characters long.
+                        </div> -->
+                    </div>
+                    <div *ngIf="isPasswordMatch === false" class="form-alert mt-1">
+                        Passwords do not match.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <input formControlName="email" type="email" placeholder="Email Address">
+                    <div *ngIf="signupForm.controls.email.invalid && (signupForm.controls.email.dirty 
+                        || signupForm.controls.email.touched)" class="form-alert mt-1">
+                        <div *ngIf="signupForm.controls.email.errors.required">
+                            Email address is required.
+                        </div>
+                        <div *ngIf="signupForm.controls.email.errors.minlength">
+                            Email address must be at least 6 characters long.
+                        </div>
+                        <div *ngIf="signupForm.controls.email.errors.email">
+                            Incorrect format for email address.
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-5">
+                    <input formControlName="phone" type="text" placeholder="Phone Number">
+                    <div *ngIf="signupForm.controls.phone.invalid && (signupForm.controls.phone.dirty 
+                        || signupForm.controls.phone.touched)" class="form-alert mt-1">
+                        <div *ngIf="signupForm.controls.phone.errors.required">
+                            Phone number is required.
+                        </div>
+                        <div *ngIf="signupForm.controls.phone.errors.minlength">
+                            Phone number must be at least 10 numbers long.
+                        </div>
+                    </div>
+                </div>
+                <button type="submit">SIGN UP</button>
             </form>
         </div>
     </div>
