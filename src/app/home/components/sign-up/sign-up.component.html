@@ -1,0 +1,14 @@
+<div class="container-fluid sign-up">
+    <div class="row">
+        <div class="col-3 mr-auto ml-auto">
+            <form [formGroup]="signupForm" class="mb-4" (ngSubmit)="login()">
+                <input formControlName="username" type="text" placeholder="Username" class="mb-4">
+                <input formControlName="password" type="text" placeholder="Password" class="mb-4">
+                <input formControlName="confirmPassword" type="text" placeholder="Confirm Password" class="mb-4">
+                <input formControlName="email" type="email" placeholder="Email Address" class="mb-4">
+                <input formControlName="phone" type="number" placeholder="Phone Number" class="mb-4">
+                <button>SIGN UP</button>
+            </form>
+        </div>
+    </div>
+</div>

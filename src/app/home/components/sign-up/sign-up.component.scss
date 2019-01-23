@@ -1,0 +1,15 @@
+@import './../../../sass/variables';
+@import './../../../sass/interface';
+@import './../../../sass/mixins';
+.sign-up {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    form {
+        button {
+            background: $sky-blue;
+            color: $ivory-black;
+        }
+    }
+}

@@ -7,11 +7,13 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HomeComponent } from './home/components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SignUpComponent } from './home/components/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
