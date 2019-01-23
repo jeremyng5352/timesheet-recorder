@@ -1,0 +1,56 @@
+@import './../../../sass/variables';
+@import './../../../sass/interface';
+@import './../../../sass/mixins';
+.home {
+    background: $ivory-black;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h2 {
+        color: white;
+    }
+    .login {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        form {
+            @include column-center;
+            input {
+                width: 100%;
+                padding: 0.5rem 0 0.5rem 1rem;
+                background: transparentize($color: white, $amount: 0.9);
+                border: transparentize($color: white, $amount: 0.8) solid 2px;
+                color: white;
+            }
+            button {
+                background: $gold-leaf;
+                color: $ivory-black;
+            }
+        }
+        .register {
+            color: transparentize($color: white, $amount: 0.7);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            span {
+                color: $sky-blue;
+                cursor: pointer;
+                transition: all 0.3s;
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}
+
+button {
+    width: 100%;
+    padding: 0.5rem 0;
+    border: transparent solid 2px;
+    font-weight: bold;
+    transition: all 0.3s;
+    &:hover {
+        opacity: 0.8;
+    }
+}

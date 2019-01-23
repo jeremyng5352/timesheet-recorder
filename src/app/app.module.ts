@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HomeComponent } from './home/components/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { HomeComponent } from './home/components/home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MDBBootstrapModule.forRoot()
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MDBBootstrapModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

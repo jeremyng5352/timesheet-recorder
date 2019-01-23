@@ -1,3 +1,12 @@
-<p>
-  home works!
-</p>
+<div class="container-fluid home">
+    <div class="row">
+        <div class="login col-3 mr-auto ml-auto">
+            <form [formGroup]="loginForm" class="mb-4" (ngSubmit)="login()">
+                <input formControlName="username" type="text" placeholder="Username" class="mb-4">
+                <input formControlName="password" type="text" placeholder="Password" class="mb-4">
+                <button>LOGIN</button>
+            </form>
+            <div class="register ml-auto mr-auto"> Don't have an account? <span class="ml-2">Sign up</span> </div>
+        </div>
+    </div>
+</div>

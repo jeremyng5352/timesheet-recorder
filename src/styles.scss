@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import 'src/app/sass/normalize';
+@import 'src/app/sass/reset';
+@import 'src/app/sass/variables';
+html,
+body {
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+a {
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    outline: none !important;
+}
