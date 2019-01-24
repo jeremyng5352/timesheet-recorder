@@ -1,0 +1,7 @@
+{
+    "AppSyncApiName": "timesheetrecorder",
+    "schemaGraphql": "s3://timesheetrecorder-20190123163426-deployment/amplify-appsync-files/schema.graphql.1548288538910",
+    "ResolverBucket": "timesheetrecorder-20190123163426-deployment",
+    "ResolverRootKey": "amplify-appsync-files",
+    "DeploymentTimestamp": "1548288538910"
+}

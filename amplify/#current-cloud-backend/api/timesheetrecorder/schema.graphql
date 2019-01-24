@@ -1,0 +1,26 @@
+type User @model {
+  uuid: ID!
+  username: String!
+  email: String!
+  phone: String!
+  timesheets: [Timesheet] @connection(name: "UserTimesheets")
+}
+type Timesheet @model {
+  id: ID!
+  title: String!
+  owner: User! @connection(name: "UserTimesheets")
+  permitted_users_id: [User]
+  timecards: [Timecard] @connection(name: "TimesheetCards")
+}
+
+type Timecard @model { 
+  id: ID!
+  title: String
+  startDateTime: String
+  endDateTime: String
+  timeDifference: String
+  fromTimeSheet: Timesheet @connection(name: "TimesheetCards")
+}
+
+
+

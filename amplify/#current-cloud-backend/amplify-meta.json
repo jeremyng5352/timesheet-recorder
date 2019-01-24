@@ -1,0 +1,53 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "timesheetrecorder-20190123163426-authRole",
+			"UnauthRoleArn": "arn:aws:iam::551117793607:role/timesheetrecorder-20190123163426-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::551117793607:role/timesheetrecorder-20190123163426-authRole",
+			"Region": "ap-southeast-2",
+			"DeploymentBucketName": "timesheetrecorder-20190123163426-deployment",
+			"UnauthRoleName": "timesheetrecorder-20190123163426-unauthRole",
+			"StackName": "timesheetrecorder-20190123163426",
+			"StackId": "arn:aws:cloudformation:ap-southeast-2:551117793607:stack/timesheetrecorder-20190123163426/ee09f530-1ed8-11e9-88ea-02181cf5d610"
+		}
+	},
+	"auth": {
+		"cognitob8ae625c": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/timesheetrecorder-20190123163426-deployment/amplify-cfn-templates/auth/cognitob8ae625c-cloudformation-template.yml",
+				"logicalId": "authcognitob8ae625c"
+			},
+			"lastPushTimeStamp": "2019-01-24T00:12:03.830Z",
+			"output": {
+				"AppClientSecret": "d5d2055cf56u036lhfsv9qeqnat85qrjvrg9jvuiuguus37ea6q",
+				"UserPoolId": "ap-southeast-2_RyTiBLgx2",
+				"AppClientIDWeb": "181r5777q1h47fadfa3iumaiah",
+				"AppClientID": "2hvk19bd3ibo53be7o3vr3b3o6",
+				"IdentityPoolId": "ap-southeast-2:4dbf45cd-e8de-4174-b1be-ffaba810ec31",
+				"IdentityPoolName": "cognitob8ae625c_identitypool_b8ae625c",
+				"UserPoolName": "cognitob8ae625c_userpool_b8ae625c"
+			},
+			"lastPushDirHash": "A10P6e+G7hQAVxypFjoW0nbpeHY="
+		}
+	},
+	"api": {
+		"timesheetrecorder": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"securityType": "API_KEY",
+				"GraphQLAPIIdOutput": "2dsflnh5ovge7atfryyq32pfay",
+				"GraphQLAPIEndpointOutput": "https://amgsa5aperev7bgk5d2rn37muu.appsync-api.ap-southeast-2.amazonaws.com/graphql",
+				"GraphQLAPIKeyOutput": "da2-lng2h52cpvhrpiv33sl64xrxxy"
+			},
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/timesheetrecorder-20190123163426-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"logicalId": "apitimesheetrecorder"
+			},
+			"lastPushTimeStamp": "2019-01-24T00:12:06.539Z",
+			"lastPushDirHash": "6rq2a/sGbIKrFEHvyvWK7XHkWfo="
+		}
+	}
+}

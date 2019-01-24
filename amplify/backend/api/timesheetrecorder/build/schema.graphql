@@ -1,0 +1,217 @@
+type User {
+  uuid: ID!
+  username: String!
+  email: String!
+  phone: String!
+  timesheets(filter: ModelTimesheetFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelTimesheetConnection
+}
+
+type Timesheet {
+  id: ID!
+  title: String!
+  owner: User!
+  permitted_users_id: [User]
+  timecards(filter: ModelTimecardFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelTimecardConnection
+}
+
+type Timecard {
+  id: ID!
+  title: String
+  startDateTime: String
+  endDateTime: String
+  timeDifference: String
+  fromTimeSheet: Timesheet
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelUserConnection {
+  items: [User]
+  nextToken: String
+}
+
+input ModelStringFilterInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+}
+
+input ModelIDFilterInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+}
+
+input ModelIntFilterInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  contains: Int
+  notContains: Int
+  between: [Int]
+}
+
+input ModelFloatFilterInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  contains: Float
+  notContains: Float
+  between: [Float]
+}
+
+input ModelBooleanFilterInput {
+  ne: Boolean
+  eq: Boolean
+}
+
+input ModelUserFilterInput {
+  uuid: ModelIDFilterInput
+  username: ModelStringFilterInput
+  email: ModelStringFilterInput
+  phone: ModelStringFilterInput
+  and: [ModelUserFilterInput]
+  or: [ModelUserFilterInput]
+  not: ModelUserFilterInput
+}
+
+type Query {
+  getUser(id: ID!): User
+  listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection
+  getTimesheet(id: ID!): Timesheet
+  listTimesheets(filter: ModelTimesheetFilterInput, limit: Int, nextToken: String): ModelTimesheetConnection
+  getTimecard(id: ID!): Timecard
+  listTimecards(filter: ModelTimecardFilterInput, limit: Int, nextToken: String): ModelTimecardConnection
+}
+
+input CreateUserInput {
+  uuid: ID!
+  username: String!
+  email: String!
+  phone: String!
+}
+
+input UpdateUserInput {
+  uuid: ID
+  username: String
+  email: String
+  phone: String
+}
+
+input DeleteUserInput {
+  id: ID
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): User
+  updateUser(input: UpdateUserInput!): User
+  deleteUser(input: DeleteUserInput!): User
+  createTimesheet(input: CreateTimesheetInput!): Timesheet
+  updateTimesheet(input: UpdateTimesheetInput!): Timesheet
+  deleteTimesheet(input: DeleteTimesheetInput!): Timesheet
+  createTimecard(input: CreateTimecardInput!): Timecard
+  updateTimecard(input: UpdateTimecardInput!): Timecard
+  deleteTimecard(input: DeleteTimecardInput!): Timecard
+}
+
+type Subscription {
+  onCreateUser: User @aws_subscribe(mutations: ["createUser"])
+  onUpdateUser: User @aws_subscribe(mutations: ["updateUser"])
+  onDeleteUser: User @aws_subscribe(mutations: ["deleteUser"])
+  onCreateTimesheet: Timesheet @aws_subscribe(mutations: ["createTimesheet"])
+  onUpdateTimesheet: Timesheet @aws_subscribe(mutations: ["updateTimesheet"])
+  onDeleteTimesheet: Timesheet @aws_subscribe(mutations: ["deleteTimesheet"])
+  onCreateTimecard: Timecard @aws_subscribe(mutations: ["createTimecard"])
+  onUpdateTimecard: Timecard @aws_subscribe(mutations: ["updateTimecard"])
+  onDeleteTimecard: Timecard @aws_subscribe(mutations: ["deleteTimecard"])
+}
+
+type ModelTimesheetConnection {
+  items: [Timesheet]
+  nextToken: String
+}
+
+input ModelTimesheetFilterInput {
+  id: ModelIDFilterInput
+  title: ModelStringFilterInput
+  and: [ModelTimesheetFilterInput]
+  or: [ModelTimesheetFilterInput]
+  not: ModelTimesheetFilterInput
+}
+
+input CreateTimesheetInput {
+  id: ID
+  title: String!
+  timesheetOwnerId: ID!
+}
+
+input UpdateTimesheetInput {
+  id: ID!
+  title: String
+  timesheetOwnerId: ID
+}
+
+input DeleteTimesheetInput {
+  id: ID
+}
+
+type ModelTimecardConnection {
+  items: [Timecard]
+  nextToken: String
+}
+
+input ModelTimecardFilterInput {
+  id: ModelIDFilterInput
+  title: ModelStringFilterInput
+  startDateTime: ModelStringFilterInput
+  endDateTime: ModelStringFilterInput
+  timeDifference: ModelStringFilterInput
+  and: [ModelTimecardFilterInput]
+  or: [ModelTimecardFilterInput]
+  not: ModelTimecardFilterInput
+}
+
+input CreateTimecardInput {
+  id: ID
+  title: String
+  startDateTime: String
+  endDateTime: String
+  timeDifference: String
+  timecardFromTimeSheetId: ID
+}
+
+input UpdateTimecardInput {
+  id: ID!
+  title: String
+  startDateTime: String
+  endDateTime: String
+  timeDifference: String
+  timecardFromTimeSheetId: ID
+}
+
+input DeleteTimecardInput {
+  id: ID
+}
