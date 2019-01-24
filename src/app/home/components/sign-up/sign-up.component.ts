@@ -1,17 +1,42 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UserService } from '../../../user/user.service';
+
+class TemporaryUserDetail {
+  username: string;
+  password: string;
+  confirmPassword: string;
+  email: string;
+  phone: string;
+
+  constructor(
+    username: string,
+    password: string,
+    confirmPassword: string,
+    email: string,
+    phone: string,
+  ) {
+    this.username = username;
+    this.password = password;
+    this.confirmPassword = confirmPassword;
+    this.email = email;
+    this.phone = phone;
+  }
+}
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss']
 })
+
 export class SignUpComponent implements OnInit {
   signupForm: FormGroup;
   isPasswordMatch;
   timeout = null;
   constructor(
     private formBuilder: FormBuilder,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -43,10 +68,10 @@ export class SignUpComponent implements OnInit {
     const confirmPassword = this.signupForm.get('confirmPassword').value;
     const email = this.signupForm.get('email').value;
     const phone = this.signupForm.get('phone').value;
-    return { username, password, confirmPassword, email, phone };
+    return new TemporaryUserDetail(username, password, confirmPassword, email, phone);
   }
 
-  comparePassword(detail) {
+  comparePassword(detail: TemporaryUserDetail) {
     if (detail.password !== detail.confirmPassword) {
       this.isPasswordMatch = false;
     } else {
@@ -55,6 +80,9 @@ export class SignUpComponent implements OnInit {
   }
 
   signup() {
-    const detail = this.getFormValue();
+    const detail: TemporaryUserDetail = this.getFormValue();
+    this.userService.signup(detail);
   }
+
+
 }
