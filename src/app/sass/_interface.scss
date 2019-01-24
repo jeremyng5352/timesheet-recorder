@@ -6,6 +6,27 @@
 
 form {
     @include column-center;
+    .form-group {
+        position: relative;
+        color: transparentize($color: white, $amount: 0.4);
+        margin: 0;
+        min-height: 4.5rem;
+    }
+    .form-input-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0.5rem 0 0 1rem;
+        transition: all 200ms;
+        opacity: 0.5;
+        pointer-events: none;
+    }
+    .form-input:focus+.form-input-placeholder,
+    .form-input:valid+.form-input-placeholder {
+        font-size: 75%;
+        transform: translate3d(0, -100%, 0);
+        opacity: 1;
+    }
     input {
         width: 100%;
         padding: 0.5rem 0 0.5rem 1rem;
