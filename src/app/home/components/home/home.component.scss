@@ -29,6 +29,7 @@
             input {
                 background: transparentize($color: $gold-leaf, $amount: 0.9);
                 border: transparentize($color: $gold-leaf, $amount: 0.8) solid 2px;
+                color: white;
             }
             button {
                 background: $gold-leaf;

@@ -25,6 +25,7 @@
         input {
             background: transparentize($color: $sky-blue, $amount: 0.9);
             border: transparentize($color: $sky-blue, $amount: 0.8) solid 2px;
+            color: white;
         }
         button {
             background: $sky-blue;
