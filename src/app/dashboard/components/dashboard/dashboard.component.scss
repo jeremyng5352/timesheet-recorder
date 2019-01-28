@@ -1,0 +1,16 @@
+@import './../../../sass/variables';
+@import './../../../sass/interface';
+@import './../../../sass/mixins';
+.dashboard {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: white;
+    .header-container {
+        background: $ivory-black;
+        color: white;
+        padding: 1.25rem 0;
+        box-shadow: 0px 0px 10px 0px rgba(11, 60, 93, 1);
+    }
+}

@@ -67,7 +67,7 @@ export class UserService {
   }
 
   redirecAfterSignIn(username: string) {
-      this.router.navigate(['dashboard', {id: username}]);
+      this.router.navigate(['/dashboard', username]);
 }
 
   signout() {
