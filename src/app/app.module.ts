@@ -14,7 +14,7 @@ import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
   declarations: [
     AppComponent,
     HomeComponent,
-    SignUpComponent
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,10 @@
 
 form {
     @include column-center;
+    .form-alert {
+        color: red;
+        font-size: 0.8rem;
+    }
     .form-group {
         position: relative;
         color: transparentize($color: white, $amount: 0.4);

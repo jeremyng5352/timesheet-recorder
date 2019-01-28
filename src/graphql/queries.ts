@@ -1,5 +1,7 @@
-# this is an auto generated file. This will be overwritten
-query GetUser($id: ID!) {
+// tslint:disable
+// this is an auto generated file. This will be overwritten
+
+export const getUser = `query GetUser($id: ID!) {
   getUser(id: $id) {
     uuid
     username
@@ -14,7 +16,8 @@ query GetUser($id: ID!) {
     }
   }
 }
-query ListUsers(
+`;
+export const listUsers = `query ListUsers(
   $filter: ModelUserFilterInput
   $limit: Int
   $nextToken: String
@@ -32,7 +35,8 @@ query ListUsers(
     nextToken
   }
 }
-query GetTimesheet($id: ID!) {
+`;
+export const getTimesheet = `query GetTimesheet($id: ID!) {
   getTimesheet(id: $id) {
     id
     title
@@ -66,7 +70,8 @@ query GetTimesheet($id: ID!) {
     }
   }
 }
-query ListTimesheets(
+`;
+export const listTimesheets = `query ListTimesheets(
   $filter: ModelTimesheetFilterInput
   $limit: Int
   $nextToken: String
@@ -94,7 +99,8 @@ query ListTimesheets(
     nextToken
   }
 }
-query GetTimecard($id: ID!) {
+`;
+export const getTimecard = `query GetTimecard($id: ID!) {
   getTimecard(id: $id) {
     id
     title
@@ -122,7 +128,8 @@ query GetTimecard($id: ID!) {
     }
   }
 }
-query ListTimecards(
+`;
+export const listTimecards = `query ListTimecards(
   $filter: ModelTimecardFilterInput
   $limit: Int
   $nextToken: String
@@ -142,3 +149,4 @@ query ListTimecards(
     nextToken
   }
 }
+`;

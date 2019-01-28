@@ -1,6 +1,8 @@
-# this is an auto generated file. This will be overwritten
-mutation CreateUser($input: CreateUserInput!) {
-  createUser(input: $input) {
+// tslint:disable
+// this is an auto generated file. This will be overwritten
+
+export const onCreateUser = `subscription OnCreateUser {
+  onCreateUser {
     uuid
     username
     email
@@ -14,8 +16,9 @@ mutation CreateUser($input: CreateUserInput!) {
     }
   }
 }
-mutation UpdateUser($input: UpdateUserInput!) {
-  updateUser(input: $input) {
+`;
+export const onUpdateUser = `subscription OnUpdateUser {
+  onUpdateUser {
     uuid
     username
     email
@@ -29,8 +32,9 @@ mutation UpdateUser($input: UpdateUserInput!) {
     }
   }
 }
-mutation DeleteUser($input: DeleteUserInput!) {
-  deleteUser(input: $input) {
+`;
+export const onDeleteUser = `subscription OnDeleteUser {
+  onDeleteUser {
     uuid
     username
     email
@@ -44,8 +48,9 @@ mutation DeleteUser($input: DeleteUserInput!) {
     }
   }
 }
-mutation CreateTimesheet($input: CreateTimesheetInput!) {
-  createTimesheet(input: $input) {
+`;
+export const onCreateTimesheet = `subscription OnCreateTimesheet {
+  onCreateTimesheet {
     id
     title
     owner {
@@ -78,8 +83,9 @@ mutation CreateTimesheet($input: CreateTimesheetInput!) {
     }
   }
 }
-mutation UpdateTimesheet($input: UpdateTimesheetInput!) {
-  updateTimesheet(input: $input) {
+`;
+export const onUpdateTimesheet = `subscription OnUpdateTimesheet {
+  onUpdateTimesheet {
     id
     title
     owner {
@@ -112,8 +118,9 @@ mutation UpdateTimesheet($input: UpdateTimesheetInput!) {
     }
   }
 }
-mutation DeleteTimesheet($input: DeleteTimesheetInput!) {
-  deleteTimesheet(input: $input) {
+`;
+export const onDeleteTimesheet = `subscription OnDeleteTimesheet {
+  onDeleteTimesheet {
     id
     title
     owner {
@@ -146,8 +153,9 @@ mutation DeleteTimesheet($input: DeleteTimesheetInput!) {
     }
   }
 }
-mutation CreateTimecard($input: CreateTimecardInput!) {
-  createTimecard(input: $input) {
+`;
+export const onCreateTimecard = `subscription OnCreateTimecard {
+  onCreateTimecard {
     id
     title
     startDateTime
@@ -174,8 +182,9 @@ mutation CreateTimecard($input: CreateTimecardInput!) {
     }
   }
 }
-mutation UpdateTimecard($input: UpdateTimecardInput!) {
-  updateTimecard(input: $input) {
+`;
+export const onUpdateTimecard = `subscription OnUpdateTimecard {
+  onUpdateTimecard {
     id
     title
     startDateTime
@@ -202,8 +211,9 @@ mutation UpdateTimecard($input: UpdateTimecardInput!) {
     }
   }
 }
-mutation DeleteTimecard($input: DeleteTimecardInput!) {
-  deleteTimecard(input: $input) {
+`;
+export const onDeleteTimecard = `subscription OnDeleteTimecard {
+  onDeleteTimecard {
     id
     title
     startDateTime
@@ -230,3 +240,4 @@ mutation DeleteTimecard($input: DeleteTimecardInput!) {
     }
   }
 }
+`;

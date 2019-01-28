@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import * as moment from 'moment';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import 'moment/locale/pt-br';
+import { UserService } from '../../../user/user.service';
+import * as moment from 'moment';
 
 
 @Component({
@@ -10,21 +11,31 @@ import 'moment/locale/pt-br';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  loginForm = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
-  });
+  loginForm: FormGroup;
 
-  constructor() { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService
+  ) { }
 
   ngOnInit() {
-    moment.locale('en-au');
-    moment().format('MMMM Do YYYY, h:mm:ss a');
-    const now = moment().format('MMMM Do YYYY, h:mm a');
+    this.buildForm();
+    // moment.locale('en-au');
+    // moment().format('MMMM Do YYYY, h:mm:ss a');
+    // const now = moment().format('MMMM Do YYYY, h:mm a');
+  }
+
+  buildForm() {
+    this.loginForm = this.formBuilder.group({
+      username: this.formBuilder.control('', [Validators.required, Validators.minLength(6)]),
+      password: this.formBuilder.control('', [Validators.required, Validators.minLength(6)]),
+    });
   }
 
   login() {
-
+    const username = this.loginForm.get('username').value;
+    const password = this.loginForm.get('password').value;
+    this.userService.signin(username, password);
   }
 
 }

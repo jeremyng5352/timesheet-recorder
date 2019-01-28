@@ -3,8 +3,34 @@
         <div class="login col-3 mr-auto ml-auto">
             <h2 class="mb-5"><span>LOGIN</span></h2>
             <form [formGroup]="loginForm" class="mb-4" (ngSubmit)="login()">
-                <input formControlName="username" type="text" placeholder="Username" class="mb-4">
-                <input formControlName="password" type="text" placeholder="Password" class="mb-4">
+                <div class="mb-3">
+                    <div class="form-group">
+                        <input formControlName="username" type="text" class="form-input" required>
+                        <label class="form-input-placeholder" for="name">Username</label>
+                        <div *ngIf="loginForm.controls.username.invalid && (loginForm.controls.username.dirty || loginForm.controls.username.touched)" class="form-alert mt-1">
+                            <div *ngIf="loginForm.controls.username.errors.required">
+                                Username is required.
+                            </div>
+                            <div *ngIf="loginForm.controls.username.errors.minlength">
+                                Username must be at least 6 characters long.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="form-group">
+                        <input formControlName="password" type="password" class="form-input" required>
+                        <label class="form-input-placeholder" for="password">Password</label>
+                        <div *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.dirty || loginForm.controls.password.touched)" class="form-alert mt-1">
+                            <div *ngIf="loginForm.controls.password.errors.required">
+                                Password is required.
+                            </div>
+                            <div *ngIf="loginForm.controls.password.errors.minlength">
+                                Password must be at least 6 characters long.
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <button type="submit">LOGIN</button>
             </form>
             <div class="register ml-auto mr-auto"> Don't have an account? <span class="ml-2" routerLink="/sign-up">Sign up</span> </div>
