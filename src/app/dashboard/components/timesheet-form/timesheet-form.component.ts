@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { TimesheetService } from '../../../timesheet/timesheet.service';
+import { User } from 'src/app/user/user';
 @Component({
   selector: 'app-timesheet-form',
   templateUrl: './timesheet-form.component.html',
@@ -7,11 +9,13 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class TimesheetFormComponent implements OnInit {
   @Input() isFormShown: boolean;
+  @Input() currentUser: User;
   @Output() timesheetFormClosed = new EventEmitter<boolean>();
-  timesheetCardForm: FormGroup;
+  timesheetForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private timesheetService: TimesheetService
   ) { }
 
   ngOnInit() {
@@ -19,7 +23,7 @@ export class TimesheetFormComponent implements OnInit {
   }
 
   buildForm() {
-    this.timesheetCardForm = this.formBuilder.group({
+    this.timesheetForm = this.formBuilder.group({
       title: this.formBuilder.control('', [Validators.required, Validators.minLength(6)]),
     });
   }
@@ -28,4 +32,8 @@ export class TimesheetFormComponent implements OnInit {
     this.timesheetFormClosed.emit(false);
   }
 
+  createTimesheet() {
+    const title = this.timesheetForm.get('title').value;
+    this.timesheetService.generateTimesheet('6eea8dbb-a7af-4912-b1cb-acc9f32059cc' , title);
+  }
 }
