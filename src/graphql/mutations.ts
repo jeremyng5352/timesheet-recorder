@@ -3,7 +3,7 @@
 
 export const createUser = `mutation CreateUser($input: CreateUserInput!) {
   createUser(input: $input) {
-    id
+    uuid
     username
     email
     phone
@@ -19,7 +19,7 @@ export const createUser = `mutation CreateUser($input: CreateUserInput!) {
 `;
 export const updateUser = `mutation UpdateUser($input: UpdateUserInput!) {
   updateUser(input: $input) {
-    id
+    uuid
     username
     email
     phone
@@ -35,7 +35,7 @@ export const updateUser = `mutation UpdateUser($input: UpdateUserInput!) {
 `;
 export const deleteUser = `mutation DeleteUser($input: DeleteUserInput!) {
   deleteUser(input: $input) {
-    id
+    uuid
     username
     email
     phone
@@ -54,7 +54,7 @@ export const createTimesheet = `mutation CreateTimesheet($input: CreateTimesheet
     id
     title
     owner {
-      id
+      uuid
       username
       email
       phone
@@ -63,7 +63,7 @@ export const createTimesheet = `mutation CreateTimesheet($input: CreateTimesheet
       }
     }
     permitted_users_id {
-      id
+      uuid
       username
       email
       phone
@@ -89,7 +89,7 @@ export const updateTimesheet = `mutation UpdateTimesheet($input: UpdateTimesheet
     id
     title
     owner {
-      id
+      uuid
       username
       email
       phone
@@ -98,7 +98,7 @@ export const updateTimesheet = `mutation UpdateTimesheet($input: UpdateTimesheet
       }
     }
     permitted_users_id {
-      id
+      uuid
       username
       email
       phone
@@ -124,7 +124,7 @@ export const deleteTimesheet = `mutation DeleteTimesheet($input: DeleteTimesheet
     id
     title
     owner {
-      id
+      uuid
       username
       email
       phone
@@ -133,7 +133,7 @@ export const deleteTimesheet = `mutation DeleteTimesheet($input: DeleteTimesheet
       }
     }
     permitted_users_id {
-      id
+      uuid
       username
       email
       phone
@@ -165,13 +165,13 @@ export const createTimecard = `mutation CreateTimecard($input: CreateTimecardInp
       id
       title
       owner {
-        id
+        uuid
         username
         email
         phone
       }
       permitted_users_id {
-        id
+        uuid
         username
         email
         phone
@@ -194,13 +194,13 @@ export const updateTimecard = `mutation UpdateTimecard($input: UpdateTimecardInp
       id
       title
       owner {
-        id
+        uuid
         username
         email
         phone
       }
       permitted_users_id {
-        id
+        uuid
         username
         email
         phone
@@ -223,13 +223,13 @@ export const deleteTimecard = `mutation DeleteTimecard($input: DeleteTimecardInp
       id
       title
       owner {
-        id
+        uuid
         username
         email
         phone
       }
       permitted_users_id {
-        id
+        uuid
         username
         email
         phone

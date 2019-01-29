@@ -1,5 +1,5 @@
 type User @model {
-  id: ID!
+  uuid: ID!
   username: String!
   email: String!
   phone: String!

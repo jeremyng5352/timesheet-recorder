@@ -3,7 +3,7 @@
 
 export const getUser = `query GetUser($id: ID!) {
   getUser(id: $id) {
-    id
+    uuid
     username
     email
     phone
@@ -24,7 +24,7 @@ export const listUsers = `query ListUsers(
 ) {
   listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
-      id
+      uuid
       username
       email
       phone
@@ -41,7 +41,7 @@ export const getTimesheet = `query GetTimesheet($id: ID!) {
     id
     title
     owner {
-      id
+      uuid
       username
       email
       phone
@@ -50,7 +50,7 @@ export const getTimesheet = `query GetTimesheet($id: ID!) {
       }
     }
     permitted_users_id {
-      id
+      uuid
       username
       email
       phone
@@ -81,13 +81,13 @@ export const listTimesheets = `query ListTimesheets(
       id
       title
       owner {
-        id
+        uuid
         username
         email
         phone
       }
       permitted_users_id {
-        id
+        uuid
         username
         email
         phone
@@ -111,13 +111,13 @@ export const getTimecard = `query GetTimecard($id: ID!) {
       id
       title
       owner {
-        id
+        uuid
         username
         email
         phone
       }
       permitted_users_id {
-        id
+        uuid
         username
         email
         phone

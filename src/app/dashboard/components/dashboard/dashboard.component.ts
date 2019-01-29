@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UserService } from '../../../user/user.service';
+import { User } from 'src/app/user/user';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,16 +12,20 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class DashboardComponent implements OnInit, OnDestroy {
   subscription;
   timesheetCardForm: FormGroup;
-  username: string;
   isFormShown = false;
+  currentUser: User;
   constructor(
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
     this.subscription = this.route.params.subscribe(params => {
-      this.username = params['username'];
+      const username = params['username'];
+      this.userService.getUserByUsername(username).then((user: User) => {
+        this.currentUser = user;
+      });
    });
    this.buildForm();
   }

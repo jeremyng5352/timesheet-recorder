@@ -3,6 +3,8 @@ import { Auth } from 'aws-amplify';
 import { API, graphqlOperation } from 'aws-amplify';
 import { createUser } from './../../graphql/mutations';
 import { Router } from '@angular/router';
+import { listUsers } from '../../graphql/queries';
+import { User } from './user';
 const uuidv4 = require('uuid/v4');
 
 @Injectable({
@@ -74,5 +76,26 @@ export class UserService {
     Auth.signOut()
       .then(data => console.log(data))
       .catch(err => console.log(err));
+  }
+
+  async getUserByUsername(username: string) {
+    const response = await API.graphql(graphqlOperation(listUsers, {
+      'filter': {
+       'username': {
+         'eq': username
+       }
+      }
+    }));
+    return this.parseDataToUser(response);
+  }
+
+  parseDataToUser(response: any) {
+    const rawUser = response.data.listUsers.items[0];
+    const uuid = rawUser.uuid;
+    const username = rawUser.username;
+    const email = rawUser.email;
+    const phone = rawUser.phone;
+    // const timesheets = rawUser.timesheets;
+    return new User(uuid, username, email, phone);
   }
 }

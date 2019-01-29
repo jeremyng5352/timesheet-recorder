@@ -1,6 +1,6 @@
-<div class="container-fluid dashboard">
+<div class="container-fluid dashboard" *ngIf="currentUser">
     <div class="row header-container  mb-5">
-        <div class="username ml-auto pr-4">Hello - <span style="text-transform: capitalize;">{{username}}</span></div>
+        <div class="username ml-auto pr-4">Hello - <span style="text-transform: capitalize;">{{currentUser.username}}</span></div>
     </div>
     <div class="row cards-container pl-3 pr-3">
         <app-timesheet-card class="col-3"></app-timesheet-card>
@@ -11,9 +11,9 @@
     <i class="fas fa-plus"></i>
 </button>
 
-<div class="overlay container-fluid" *ngIf="!isFormShown">
+<div class="overlay container-fluid" *ngIf="isFormShown">
     <form class="timesheet-form" [formGroup]="timesheetCardForm">
-        <i class="fas fa-times-circle"></i>
+        <i class="fas fa-times-circle" (click)="isFormShown = false"></i>
         <h2 class="mb-3">Create Timesheet</h2>
         <div class="form-group mb-3">
             <input formControlName="title" type="text" class="form-input" required>

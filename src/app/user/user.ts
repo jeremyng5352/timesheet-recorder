@@ -1,10 +1,20 @@
 export class User {
+    uuid: string;
     username: string;
-    password: string;
     email: string;
-    phone: number;
+    phone: string;
+    // timesheets: Timesheet[]
 
-    constructor() {
-
+    constructor(
+        uuid: string,
+        username: string,
+        email: string,
+        phone: string,
+        // timesheets: Timesheet[]
+    ) {
+        this.uuid = uuid;
+        this.username = username;
+        this.email = email;
+        this.phone = phone;
     }
 }
