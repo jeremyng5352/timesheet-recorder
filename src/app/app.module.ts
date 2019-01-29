@@ -11,6 +11,7 @@ import { SignUpComponent } from './home/components/sign-up/sign-up.component';
 import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
 import { DashboardComponent } from './dashboard/components/dashboard/dashboard.component';
 import { TimesheetCardComponent } from './dashboard/components/timesheet-card/timesheet-card.component';
+import { TimesheetFormComponent } from './dashboard/components/timesheet-form/timesheet-form.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { TimesheetCardComponent } from './dashboard/components/timesheet-card/ti
     SignUpComponent,
     DashboardComponent,
     TimesheetCardComponent,
+    TimesheetFormComponent,
   ],
   imports: [
     BrowserModule,

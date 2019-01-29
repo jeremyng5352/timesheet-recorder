@@ -1,0 +1,61 @@
+@import './../../../sass/variables';
+@import './../../../sass/interface';
+@import './../../../sass/mixins';
+.overlay {
+    width: 100vw;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparentize($color: $ivory-black, $amount: 0.3);
+    @include row-center;
+    h2 {
+        width: 100%;
+        text-align: center;
+    }
+    .timesheet-form {
+        background: $ivory-black;
+        align-items: flex-start;
+        padding: 3rem;
+        color: white;
+        position: relative;
+        border-radius: 5px;
+        i {
+            position: absolute;
+            top: -1rem;
+            right: -1rem;
+            font-size: 2rem;
+            color: $ivory-black;
+            border: white solid 2px;
+            border-radius: 50px;
+            z-index: 1;
+            background: white;
+            cursor: pointer;
+            transition: 0.3s;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+        .form-group {
+            width: 100%;
+            input {
+                border-color: white;
+                background: transparent;
+                width: 100%;
+                color: white;
+            }
+            .form-input-placeholder {
+                color: white;
+                opacity: 1;
+            }
+        }
+        button {
+            background: $sky-blue;
+            cursor: pointer;
+            transition: 0.3s;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
