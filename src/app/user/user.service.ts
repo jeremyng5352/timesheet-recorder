@@ -38,10 +38,8 @@ export class UserService {
     const username: string = detail.username;
     const email: string = detail.email;
     const phone: string = detail.phone;
-    const uuid: string = uuidv4();
     const response = await API.graphql(graphqlOperation(createUser, {
       input: {
-        uuid: uuid,
         username: username,
         email: email,
         phone: phone
@@ -91,11 +89,11 @@ export class UserService {
 
   parseDataToUser(response: any) {
     const rawUser = response.data.listUsers.items[0];
-    const uuid = rawUser.uuid;
+    const id = rawUser.id;
     const username = rawUser.username;
     const email = rawUser.email;
     const phone = rawUser.phone;
     // const timesheets = rawUser.timesheets;
-    return new User(uuid, username, email, phone);
+    return new User(id, username, email, phone);
   }
 }

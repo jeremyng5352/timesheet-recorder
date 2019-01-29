@@ -34,6 +34,6 @@ export class TimesheetFormComponent implements OnInit {
 
   createTimesheet() {
     const title = this.timesheetForm.get('title').value;
-    this.timesheetService.generateTimesheet('6eea8dbb-a7af-4912-b1cb-acc9f32059cc' , title);
+    this.timesheetService.generateTimesheet(this.currentUser.id , title);
   }
 }

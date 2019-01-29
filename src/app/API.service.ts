@@ -2,14 +2,14 @@
 //  This file was automatically generated and should not be edited.
 
 export type CreateUserInput = {
-  uuid: string,
+  id?: string | null,
   username: string,
   email: string,
   phone: string,
 };
 
 export type UpdateUserInput = {
-  uuid?: string | null,
+  id: string,
   username?: string | null,
   email?: string | null,
   phone?: string | null,
@@ -58,7 +58,7 @@ export type DeleteTimecardInput = {
 };
 
 export type ModelUserFilterInput = {
-  uuid?: ModelIDFilterInput | null,
+  id?: ModelIDFilterInput | null,
   username?: ModelStringFilterInput | null,
   email?: ModelStringFilterInput | null,
   phone?: ModelStringFilterInput | null,
@@ -119,7 +119,7 @@ export type CreateUserMutationVariables = {
 export type CreateUserMutation = {
   createUser:  {
     __typename: "User",
-    uuid: string,
+    id: string,
     username: string,
     email: string,
     phone: string,
@@ -142,7 +142,7 @@ export type UpdateUserMutationVariables = {
 export type UpdateUserMutation = {
   updateUser:  {
     __typename: "User",
-    uuid: string,
+    id: string,
     username: string,
     email: string,
     phone: string,
@@ -165,7 +165,7 @@ export type DeleteUserMutationVariables = {
 export type DeleteUserMutation = {
   deleteUser:  {
     __typename: "User",
-    uuid: string,
+    id: string,
     username: string,
     email: string,
     phone: string,
@@ -192,7 +192,7 @@ export type CreateTimesheetMutation = {
     title: string,
     owner:  {
       __typename: "User",
-      uuid: string,
+      id: string,
       username: string,
       email: string,
       phone: string,
@@ -203,7 +203,7 @@ export type CreateTimesheetMutation = {
     },
     permitted_users_id:  Array< {
       __typename: "User",
-      uuid: string,
+      id: string,
       username: string,
       email: string,
       phone: string,
@@ -238,7 +238,7 @@ export type UpdateTimesheetMutation = {
     title: string,
     owner:  {
       __typename: "User",
-      uuid: string,
+      id: string,
       username: string,
       email: string,
       phone: string,
@@ -249,7 +249,7 @@ export type UpdateTimesheetMutation = {
     },
     permitted_users_id:  Array< {
       __typename: "User",
-      uuid: string,
+      id: string,
       username: string,
       email: string,
       phone: string,
@@ -284,7 +284,7 @@ export type DeleteTimesheetMutation = {
     title: string,
     owner:  {
       __typename: "User",
-      uuid: string,
+      id: string,
       username: string,
       email: string,
       phone: string,
@@ -295,7 +295,7 @@ export type DeleteTimesheetMutation = {
     },
     permitted_users_id:  Array< {
       __typename: "User",
-      uuid: string,
+      id: string,
       username: string,
       email: string,
       phone: string,
@@ -337,14 +337,14 @@ export type CreateTimecardMutation = {
       title: string,
       owner:  {
         __typename: "User",
-        uuid: string,
+        id: string,
         username: string,
         email: string,
         phone: string,
       },
       permitted_users_id:  Array< {
         __typename: "User",
-        uuid: string,
+        id: string,
         username: string,
         email: string,
         phone: string,
@@ -375,14 +375,14 @@ export type UpdateTimecardMutation = {
       title: string,
       owner:  {
         __typename: "User",
-        uuid: string,
+        id: string,
         username: string,
         email: string,
         phone: string,
       },
       permitted_users_id:  Array< {
         __typename: "User",
-        uuid: string,
+        id: string,
         username: string,
         email: string,
         phone: string,
@@ -413,14 +413,14 @@ export type DeleteTimecardMutation = {
       title: string,
       owner:  {
         __typename: "User",
-        uuid: string,
+        id: string,
         username: string,
         email: string,
         phone: string,
       },
       permitted_users_id:  Array< {
         __typename: "User",
-        uuid: string,
+        id: string,
         username: string,
         email: string,
         phone: string,
@@ -440,7 +440,7 @@ export type GetUserQueryVariables = {
 export type GetUserQuery = {
   getUser:  {
     __typename: "User",
-    uuid: string,
+    id: string,
     username: string,
     email: string,
     phone: string,
@@ -467,7 +467,7 @@ export type ListUsersQuery = {
     __typename: "ModelUserConnection",
     items:  Array< {
       __typename: "User",
-      uuid: string,
+      id: string,
       username: string,
       email: string,
       phone: string,
@@ -491,7 +491,7 @@ export type GetTimesheetQuery = {
     title: string,
     owner:  {
       __typename: "User",
-      uuid: string,
+      id: string,
       username: string,
       email: string,
       phone: string,
@@ -502,7 +502,7 @@ export type GetTimesheetQuery = {
     },
     permitted_users_id:  Array< {
       __typename: "User",
-      uuid: string,
+      id: string,
       username: string,
       email: string,
       phone: string,
@@ -541,14 +541,14 @@ export type ListTimesheetsQuery = {
       title: string,
       owner:  {
         __typename: "User",
-        uuid: string,
+        id: string,
         username: string,
         email: string,
         phone: string,
       },
       permitted_users_id:  Array< {
         __typename: "User",
-        uuid: string,
+        id: string,
         username: string,
         email: string,
         phone: string,
@@ -580,14 +580,14 @@ export type GetTimecardQuery = {
       title: string,
       owner:  {
         __typename: "User",
-        uuid: string,
+        id: string,
         username: string,
         email: string,
         phone: string,
       },
       permitted_users_id:  Array< {
         __typename: "User",
-        uuid: string,
+        id: string,
         username: string,
         email: string,
         phone: string,
@@ -629,7 +629,7 @@ export type ListTimecardsQuery = {
 export type OnCreateUserSubscription = {
   onCreateUser:  {
     __typename: "User",
-    uuid: string,
+    id: string,
     username: string,
     email: string,
     phone: string,
@@ -648,7 +648,7 @@ export type OnCreateUserSubscription = {
 export type OnUpdateUserSubscription = {
   onUpdateUser:  {
     __typename: "User",
-    uuid: string,
+    id: string,
     username: string,
     email: string,
     phone: string,
@@ -667,7 +667,7 @@ export type OnUpdateUserSubscription = {
 export type OnDeleteUserSubscription = {
   onDeleteUser:  {
     __typename: "User",
-    uuid: string,
+    id: string,
     username: string,
     email: string,
     phone: string,
@@ -690,7 +690,7 @@ export type OnCreateTimesheetSubscription = {
     title: string,
     owner:  {
       __typename: "User",
-      uuid: string,
+      id: string,
       username: string,
       email: string,
       phone: string,
@@ -701,7 +701,7 @@ export type OnCreateTimesheetSubscription = {
     },
     permitted_users_id:  Array< {
       __typename: "User",
-      uuid: string,
+      id: string,
       username: string,
       email: string,
       phone: string,
@@ -732,7 +732,7 @@ export type OnUpdateTimesheetSubscription = {
     title: string,
     owner:  {
       __typename: "User",
-      uuid: string,
+      id: string,
       username: string,
       email: string,
       phone: string,
@@ -743,7 +743,7 @@ export type OnUpdateTimesheetSubscription = {
     },
     permitted_users_id:  Array< {
       __typename: "User",
-      uuid: string,
+      id: string,
       username: string,
       email: string,
       phone: string,
@@ -774,7 +774,7 @@ export type OnDeleteTimesheetSubscription = {
     title: string,
     owner:  {
       __typename: "User",
-      uuid: string,
+      id: string,
       username: string,
       email: string,
       phone: string,
@@ -785,7 +785,7 @@ export type OnDeleteTimesheetSubscription = {
     },
     permitted_users_id:  Array< {
       __typename: "User",
-      uuid: string,
+      id: string,
       username: string,
       email: string,
       phone: string,
@@ -823,14 +823,14 @@ export type OnCreateTimecardSubscription = {
       title: string,
       owner:  {
         __typename: "User",
-        uuid: string,
+        id: string,
         username: string,
         email: string,
         phone: string,
       },
       permitted_users_id:  Array< {
         __typename: "User",
-        uuid: string,
+        id: string,
         username: string,
         email: string,
         phone: string,
@@ -857,14 +857,14 @@ export type OnUpdateTimecardSubscription = {
       title: string,
       owner:  {
         __typename: "User",
-        uuid: string,
+        id: string,
         username: string,
         email: string,
         phone: string,
       },
       permitted_users_id:  Array< {
         __typename: "User",
-        uuid: string,
+        id: string,
         username: string,
         email: string,
         phone: string,
@@ -891,14 +891,14 @@ export type OnDeleteTimecardSubscription = {
       title: string,
       owner:  {
         __typename: "User",
-        uuid: string,
+        id: string,
         username: string,
         email: string,
         phone: string,
       },
       permitted_users_id:  Array< {
         __typename: "User",
-        uuid: string,
+        id: string,
         username: string,
         email: string,
         phone: string,

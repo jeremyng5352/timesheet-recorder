@@ -3,7 +3,7 @@
 
 export const onCreateUser = `subscription OnCreateUser {
   onCreateUser {
-    uuid
+    id
     username
     email
     phone
@@ -19,7 +19,7 @@ export const onCreateUser = `subscription OnCreateUser {
 `;
 export const onUpdateUser = `subscription OnUpdateUser {
   onUpdateUser {
-    uuid
+    id
     username
     email
     phone
@@ -35,7 +35,7 @@ export const onUpdateUser = `subscription OnUpdateUser {
 `;
 export const onDeleteUser = `subscription OnDeleteUser {
   onDeleteUser {
-    uuid
+    id
     username
     email
     phone
@@ -54,7 +54,7 @@ export const onCreateTimesheet = `subscription OnCreateTimesheet {
     id
     title
     owner {
-      uuid
+      id
       username
       email
       phone
@@ -63,7 +63,7 @@ export const onCreateTimesheet = `subscription OnCreateTimesheet {
       }
     }
     permitted_users_id {
-      uuid
+      id
       username
       email
       phone
@@ -89,7 +89,7 @@ export const onUpdateTimesheet = `subscription OnUpdateTimesheet {
     id
     title
     owner {
-      uuid
+      id
       username
       email
       phone
@@ -98,7 +98,7 @@ export const onUpdateTimesheet = `subscription OnUpdateTimesheet {
       }
     }
     permitted_users_id {
-      uuid
+      id
       username
       email
       phone
@@ -124,7 +124,7 @@ export const onDeleteTimesheet = `subscription OnDeleteTimesheet {
     id
     title
     owner {
-      uuid
+      id
       username
       email
       phone
@@ -133,7 +133,7 @@ export const onDeleteTimesheet = `subscription OnDeleteTimesheet {
       }
     }
     permitted_users_id {
-      uuid
+      id
       username
       email
       phone
@@ -165,13 +165,13 @@ export const onCreateTimecard = `subscription OnCreateTimecard {
       id
       title
       owner {
-        uuid
+        id
         username
         email
         phone
       }
       permitted_users_id {
-        uuid
+        id
         username
         email
         phone
@@ -194,13 +194,13 @@ export const onUpdateTimecard = `subscription OnUpdateTimecard {
       id
       title
       owner {
-        uuid
+        id
         username
         email
         phone
       }
       permitted_users_id {
-        uuid
+        id
         username
         email
         phone
@@ -223,13 +223,13 @@ export const onDeleteTimecard = `subscription OnDeleteTimecard {
       id
       title
       owner {
-        uuid
+        id
         username
         email
         phone
       }
       permitted_users_id {
-        uuid
+        id
         username
         email
         phone

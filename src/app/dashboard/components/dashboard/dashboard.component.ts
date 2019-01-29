@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       const username = params['username'];
       this.userService.getUserByUsername(username).then((user: User) => {
         this.currentUser = user;
+        console.log(user);
       });
    });
   }
