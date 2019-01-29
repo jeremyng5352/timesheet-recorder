@@ -134,10 +134,10 @@
 				"TemplateURL": "https://s3.amazonaws.com/timesheetrecorder-20190123163426-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"Parameters": {
 					"AppSyncApiName": "timesheetrecorder",
-					"schemaGraphql": "s3://timesheetrecorder-20190123163426-deployment/amplify-appsync-files/schema.graphql.1548288538910",
+					"schemaGraphql": "s3://timesheetrecorder-20190123163426-deployment/amplify-appsync-files/schema.graphql.1548726171392",
 					"ResolverBucket": "timesheetrecorder-20190123163426-deployment",
 					"ResolverRootKey": "amplify-appsync-files",
-					"DeploymentTimestamp": "1548288538910"
+					"DeploymentTimestamp": "1548726171392"
 				}
 			}
 		}

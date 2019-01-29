@@ -1,5 +1,5 @@
 type User {
-  uuid: ID!
+  id: ID!
   username: String!
   email: String!
   phone: String!
@@ -89,7 +89,7 @@ input ModelBooleanFilterInput {
 }
 
 input ModelUserFilterInput {
-  uuid: ModelIDFilterInput
+  id: ModelIDFilterInput
   username: ModelStringFilterInput
   email: ModelStringFilterInput
   phone: ModelStringFilterInput
@@ -108,14 +108,14 @@ type Query {
 }
 
 input CreateUserInput {
-  uuid: ID!
+  id: ID
   username: String!
   email: String!
   phone: String!
 }
 
 input UpdateUserInput {
-  uuid: ID
+  id: ID!
   username: String
   email: String
   phone: String
