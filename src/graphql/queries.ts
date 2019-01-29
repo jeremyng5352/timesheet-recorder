@@ -29,7 +29,10 @@ export const listUsers = `query ListUsers(
       email
       phone
       timesheets {
-        nextToken
+        items {
+          id 
+          title
+        }
       }
     }
     nextToken

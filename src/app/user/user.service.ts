@@ -3,9 +3,10 @@ import { Auth } from 'aws-amplify';
 import { API, graphqlOperation } from 'aws-amplify';
 import { createUser } from './../../graphql/mutations';
 import { Router } from '@angular/router';
+import { onCreateTimesheet } from '../../graphql/subscriptions';
 import { listUsers } from '../../graphql/queries';
 import { User } from './user';
-const uuidv4 = require('uuid/v4');
+import { TimesheetService } from '../timesheet/timesheet.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ const uuidv4 = require('uuid/v4');
 export class UserService {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private timesheetService: TimesheetService
   ) {
   }
 
@@ -77,7 +79,7 @@ export class UserService {
   }
 
   async getUserByUsername(username: string) {
-    const response = await API.graphql(graphqlOperation(listUsers, {
+    const response: any = await API.graphql(graphqlOperation(listUsers, {
       'filter': {
        'username': {
          'eq': username
@@ -93,7 +95,13 @@ export class UserService {
     const username = rawUser.username;
     const email = rawUser.email;
     const phone = rawUser.phone;
-    // const timesheets = rawUser.timesheets;
-    return new User(id, username, email, phone);
+    const timesheets = this.timesheetService.parseDataToTimesheets(rawUser.timesheets.items);
+    return new User(id, username, email, phone, timesheets);
+  }
+
+  setupItemSubscription(username: string) {
+    (<any>API.graphql(graphqlOperation(onCreateTimesheet))).subscribe((response) => {
+      this.getUserByUsername(username);
+    });
   }
 }
