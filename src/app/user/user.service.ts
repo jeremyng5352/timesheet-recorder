@@ -7,11 +7,13 @@ import { onCreateTimesheet } from '../../graphql/subscriptions';
 import { listUsers } from '../../graphql/queries';
 import { User } from './user';
 import { TimesheetService } from '../timesheet/timesheet.service';
+import { Subject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  currentUserObservable: Subject<User> = new Subject();
 
   constructor(
     private router: Router,
@@ -78,6 +80,10 @@ export class UserService {
       .catch(err => console.log(err));
   }
 
+  getUser(): Observable<User> {
+    return this.currentUserObservable;
+  }
+
   async getUserByUsername(username: string) {
     const response: any = await API.graphql(graphqlOperation(listUsers, {
       'filter': {
@@ -86,7 +92,8 @@ export class UserService {
        }
       }
     }));
-    return this.parseDataToUser(response);
+    const convertedUser = this.parseDataToUser(response);
+    this.currentUserObservable.next(convertedUser);
   }
 
   parseDataToUser(response: any) {

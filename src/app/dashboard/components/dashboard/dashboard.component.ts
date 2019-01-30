@@ -20,7 +20,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this.route.params.subscribe(params => {
       const username = params['username'];
-      this.userService.getUserByUsername(username).then((user: User) => {
+      this.userService.getUserByUsername(username);
+      this.userService.setupItemSubscription(username);
+      this.userService.currentUserObservable.subscribe(user => {
         this.currentUser = user;
       });
    });

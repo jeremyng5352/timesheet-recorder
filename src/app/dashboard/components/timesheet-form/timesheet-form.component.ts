@@ -39,8 +39,7 @@ export class TimesheetFormComponent implements OnInit {
     this.timesheetService.generateTimesheet(this.currentUser.id , title).then((response) => {
       if ( response === true) {
         this.isLoading = false;
-      } else {
-
+        this.isFormShown = false;
       }
     });
   }
