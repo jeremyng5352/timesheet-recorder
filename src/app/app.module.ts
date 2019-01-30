@@ -13,6 +13,7 @@ import { DashboardComponent } from './dashboard/components/dashboard/dashboard.c
 import { TimesheetCardComponent } from './dashboard/components/timesheet-card/timesheet-card.component';
 import { TimesheetFormComponent } from './dashboard/components/timesheet-form/timesheet-form.component';
 import { MainComponent } from './dashboard/components/main/main.component';
+import { TimesheetComponent } from './timesheet/components/timesheet/timesheet.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MainComponent } from './dashboard/components/main/main.component';
     TimesheetCardComponent,
     TimesheetFormComponent,
     MainComponent,
+    TimesheetComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,36 @@
+@import './../../../sass/variables';
+@import './../../../sass/interface';
+@import './../../../sass/mixins';
+.timesheet {
+    @include column-center;
+    align-items: flex-end;
+    .timesheet-header {
+        width: 100%;
+        @include row-center;
+        h2 {
+            text-decoration: underline;
+        }
+        button {
+            padding: 0.5rem 1.5rem;
+            border-color: transparent;
+            transition: 0.3s;
+            &:hover {
+                opacity: 0.8;
+            }
+            &:disabled {
+                opacity: 0.3;
+            }
+        }
+    }
+    .create-timecard {
+        background: $sky-blue;
+        color: white;
+        box-shadow: 0px 0px 10px 0px rgba(11, 60, 93, 1);
+    }
+    .delete-timecard {
+        background: $gold-leaf;
+        color: black;
+        font-weight: bold;
+        box-shadow: 0px 0px 10px 0px rgba(11, 60, 93, 1);
+    }
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../../user/user.service';
 import { User } from '../../../user/user';
 
@@ -13,6 +13,7 @@ export class MainComponent implements OnInit, OnDestroy {
   isFormShown = false;
   currentUser: User;
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private userService: UserService
   ) { }
@@ -25,7 +26,7 @@ export class MainComponent implements OnInit, OnDestroy {
       this.userService.currentUserObservable.subscribe(user => {
         this.currentUser = user;
       });
-   });
+    });
   }
 
   ngOnDestroy() {
@@ -34,6 +35,10 @@ export class MainComponent implements OnInit, OnDestroy {
 
   closeForm() {
     this.isFormShown = false;
+  }
+
+  goToTimesheet(id: string) {
+    this.router.navigate([`/dashboard`, this.currentUser.username, id]);
   }
 
 }

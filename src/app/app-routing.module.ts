@@ -4,6 +4,7 @@ import { HomeComponent } from './home/components/home/home.component';
 import { SignUpComponent } from './home/components/sign-up/sign-up.component';
 import { DashboardComponent } from './dashboard/components/dashboard/dashboard.component';
 import { MainComponent } from './dashboard/components/main/main.component';
+import { TimesheetComponent } from './timesheet/components/timesheet/timesheet.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'dashboard/:username', component: DashboardComponent,
     children: [
       { path: 'dashboard/:username', redirectTo: '', pathMatch: 'full' },
-      { path: '', component: MainComponent}
+      { path: '', component: MainComponent},
+      { path: ':timesheet', component: TimesheetComponent}
     ]
   },
 ];
