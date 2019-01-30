@@ -2,13 +2,5 @@
     <div class="row header-container  mb-5">
         <div class="username ml-auto pr-4">Hello - <span style="text-transform: capitalize;">{{currentUser.username}}</span></div>
     </div>
-    <div class="row cards-container pl-3 pr-3">
-        <app-timesheet-card class="col-3" *ngFor="let timesheet of currentUser.timesheets" [timesheet]="timesheet"></app-timesheet-card>
-    </div>
+    <router-outlet></router-outlet>
 </div>
-
-<button class="create-timesheet" (click)="isFormShown = true">
-    <i class="fas fa-plus"></i>
-</button>
-
-<app-timesheet-form [isFormShown]="isFormShown" [currentUser]="currentUser" (timesheetFormClosed)="closeForm()"></app-timesheet-form>

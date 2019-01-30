@@ -1,15 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../../user/user.service';
-import { User } from 'src/app/user/user';
+import { User } from '../../../user/user';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  selector: 'app-main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.scss']
 })
-export class DashboardComponent implements OnInit, OnDestroy {
+export class MainComponent implements OnInit, OnDestroy {
   subscription;
+  isFormShown = false;
   currentUser: User;
   constructor(
     private route: ActivatedRoute,
@@ -20,6 +21,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.subscription = this.route.params.subscribe(params => {
       const username = params['username'];
       this.userService.getUserByUsername(username);
+      this.userService.setupItemSubscription(username);
       this.userService.currentUserObservable.subscribe(user => {
         this.currentUser = user;
       });
@@ -28,6 +30,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  closeForm() {
+    this.isFormShown = false;
   }
 
 }

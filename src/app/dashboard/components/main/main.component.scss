@@ -1,0 +1,26 @@
+@import './../../../sass/variables';
+@import './../../../sass/interface';
+@import './../../../sass/mixins';
+.main {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: white;
+}
+
+button.create-timesheet {
+    border-radius: 50px;
+    width: 4rem;
+    height: 4rem;
+    color: white;
+    font-size: 2rem;
+    background: $sky-blue;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    transition: 0.3s;
+    &:hover {
+        opacity: 0.7;
+    }
+}
