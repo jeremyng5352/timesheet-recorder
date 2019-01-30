@@ -1,5 +1,5 @@
-<div class="overlay container-fluid" *ngIf="isFormShown">
-    <form class="timesheet-form" [formGroup]="timesheetForm">
+<div class="overlay container-fluid" *ngIf="isFormShown && !isLoading">
+    <form class="timesheet-form" [formGroup]="timesheetForm" *ngIf="!isLoading">
         <i class="fas fa-times-circle" (click)="closeForm()"></i>
         <h2 class="mb-3">Create Timesheet</h2>
         <div class="form-group mb-3">
@@ -16,4 +16,8 @@
         </div>
         <button (click)="createTimesheet()">Create</button>
     </form>
+    <div class="lds-ripple" *ngIf="isLoading">
+        <div></div>
+        <div></div>
+    </div>
 </div>

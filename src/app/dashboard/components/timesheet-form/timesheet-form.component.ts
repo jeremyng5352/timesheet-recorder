@@ -12,6 +12,7 @@ export class TimesheetFormComponent implements OnInit {
   @Input() currentUser: User;
   @Output() timesheetFormClosed = new EventEmitter<boolean>();
   timesheetForm: FormGroup;
+  isLoading: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,7 +34,14 @@ export class TimesheetFormComponent implements OnInit {
   }
 
   createTimesheet() {
+    this.isLoading = true;
     const title = this.timesheetForm.get('title').value;
-    this.timesheetService.generateTimesheet(this.currentUser.id , title);
+    this.timesheetService.generateTimesheet(this.currentUser.id , title).then((response) => {
+      if ( response === true) {
+        this.isLoading = false;
+      } else {
+
+      }
+    });
   }
 }
