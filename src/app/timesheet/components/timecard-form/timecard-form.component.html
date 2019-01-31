@@ -4,14 +4,14 @@
         <h2 class="mb-5">Create Timecard</h2>
         <div class="mb-3">
             <div class="form-group">
-                <input formControlName="description" type="text" class="form-input" required>
-                <label class="form-input-placeholder" for="name">Description*</label>
-                <div *ngIf="timecardForm.controls.description.invalid && (timecardForm.controls.description.dirty || timecardForm.controls.description.touched)" class="form-alert mt-1">
-                    <div *ngIf="timecardForm.controls.description.errors.required">
-                        Description is required.
+                <input formControlName="title" type="text" class="form-input" required>
+                <label class="form-input-placeholder" for="title">Title*</label>
+                <div *ngIf="timecardForm.controls.title.invalid && (timecardForm.controls.title.dirty || timecardForm.controls.title.touched)" class="form-alert mt-1">
+                    <div *ngIf="timecardForm.controls.title.errors.required">
+                        Title is required.
                     </div>
-                    <div *ngIf="timecardForm.controls.description.errors.minlength">
-                        Description must be at least 6 characters long.
+                    <div *ngIf="timecardForm.controls.title.errors.minlength">
+                        Title must be at least 6 characters long.
                     </div>
                 </div>
             </div>
@@ -20,12 +20,6 @@
             <div class="form-group">
                 <input formControlName="startDateTime" type="datetime-local" class="form-input-datetime">
                 <label class="form-input-placeholder focus" for="startDateTime">Start Date Time</label>
-            </div>
-        </div>
-        <div class="mb-3">
-            <div class="form-group">
-                <input formControlName="endDateTime" type="datetime-local" class="form-input-datetime">
-                <label class="form-input-placeholder focus" for="endDateTime">End Date Time</label>
             </div>
         </div>
         <button (click)="createTimecard()" [disabled]="timecardForm.invalid">Create</button>
