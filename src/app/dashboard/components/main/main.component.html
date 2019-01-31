@@ -1,5 +1,5 @@
 <div class="row cards-container pl-3 pr-3" *ngIf="currentUser">
-    <app-timesheet-card class="col-3" *ngFor="let timesheet of currentUser.timesheets" [timesheet]="timesheet" (click)="goToTimesheet(timesheet.id)"></app-timesheet-card>
+    <app-timesheet-card class="col-3 mb-4" *ngFor="let timesheet of currentUser.timesheets" [timesheet]="timesheet" (click)="goToTimesheet(timesheet.id)"></app-timesheet-card>
 </div>
 
 <button class="create-timesheet" (click)="isFormShown = true">

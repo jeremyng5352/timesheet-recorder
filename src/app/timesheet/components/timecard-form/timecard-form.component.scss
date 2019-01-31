@@ -6,7 +6,7 @@
         width: 100%;
         text-align: center;
     }
-    .timesheet-form {
+    form.timecard-form {
         background: $ivory-black;
         align-items: flex-start;
         padding: 3rem;
@@ -29,26 +29,23 @@
                 opacity: 0.8;
             }
         }
-        .form-group {
+        div {
             width: 100%;
-            input {
-                border-color: white;
-                background: transparent;
-                width: 100%;
-                color: white;
-            }
-            .form-input-placeholder {
-                color: white;
-                opacity: 1;
-            }
+            text-align: left;
+        }
+        input {
+            background: transparentize($color: $sky-blue, $amount: 0.9);
+            border: transparentize($color: $sky-blue, $amount: 0.8) solid 2px;
+            color: white;
+        }
+        .form-input-datetime+.form-input-placeholder {
+            font-size: 75%;
+            transform: translate3d(0, -100%, 0);
+            opacity: 1;
         }
         button {
             background: $sky-blue;
-            cursor: pointer;
-            transition: 0.3s;
-            &:hover {
-                opacity: 0.8;
-            }
+            color: $ivory-black;
         }
     }
 }

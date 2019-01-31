@@ -2,14 +2,17 @@ import { Injectable } from '@angular/core';
 import { API, graphqlOperation } from 'aws-amplify';
 import { createTimesheet } from './../../graphql/mutations';
 import { Timesheet } from './timesheet';
+import { Observable, Subject } from 'rxjs';
+import { getTimesheet } from '../../graphql/queries';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TimesheetService {
 
+  currentTimesheetObservable: Subject<Timesheet> = new Subject();
   constructor(
-  ) {}
+  ) { }
 
   async generateTimesheet(id: string, title: string): Promise<boolean> {
     const response: any = await API.graphql(graphqlOperation(createTimesheet, {
@@ -18,7 +21,7 @@ export class TimesheetService {
         timesheetOwnerId: id
       }
     }));
-    if ( response.data ) {
+    if (response.data) {
       return true;
     } else {
       return false;
@@ -28,12 +31,29 @@ export class TimesheetService {
   parseDataToTimesheets(rawItems: any[]): Timesheet[] {
     const timesheets: Timesheet[] = [];
     for (const rawItem of rawItems) {
-      const id = rawItem.id;
-      const title = rawItem.title;
-      const timesheet: Timesheet = new Timesheet(id, title);
+      const timesheet: Timesheet = this.parseDataToTimesheet(rawItem);
       timesheets.push(timesheet);
 
     }
     return timesheets;
+  }
+
+  parseDataToTimesheet(rawItem: any): Timesheet {
+    const id = rawItem.id;
+    const title = rawItem.title;
+    return new Timesheet(id, title);
+  }
+
+  getTimesheet(): Observable<Timesheet> {
+    return this.currentTimesheetObservable;
+  }
+
+  async getTimesheetById(id: string) {
+    const response: any = await API.graphql(graphqlOperation(getTimesheet, {
+      'id': id
+    }));
+    const data = response.data.getTimesheet;
+    const convertedTimesheet = this.parseDataToTimesheet(data);
+    this.currentTimesheetObservable.next(convertedTimesheet);
   }
 }
