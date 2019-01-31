@@ -15,6 +15,7 @@ import { TimesheetFormComponent } from './dashboard/components/timesheet-form/ti
 import { MainComponent } from './dashboard/components/main/main.component';
 import { TimesheetComponent } from './timesheet/components/timesheet/timesheet.component';
 import { TimecardFormComponent } from './timesheet/components/timecard-form/timecard-form.component';
+import { TimecardComponent } from './timecard/timecard/timecard.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { TimecardFormComponent } from './timesheet/components/timecard-form/time
     MainComponent,
     TimesheetComponent,
     TimecardFormComponent,
+    TimecardComponent,
   ],
   imports: [
     BrowserModule,

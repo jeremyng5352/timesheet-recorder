@@ -23,6 +23,7 @@ export class TimesheetComponent implements OnInit, OnDestroy {
       this.timesheetService.getTimesheetById(id);
       this.timesheetService.currentTimesheetObservable.subscribe(timesheet => {
         this.currentTimesheet = timesheet;
+        console.log(this.currentTimesheet);
       });
     });
   }

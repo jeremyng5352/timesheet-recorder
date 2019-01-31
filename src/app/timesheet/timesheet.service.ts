@@ -3,7 +3,9 @@ import { API, graphqlOperation } from 'aws-amplify';
 import { createTimesheet } from './../../graphql/mutations';
 import { Timesheet } from './timesheet';
 import { Observable, Subject } from 'rxjs';
-import { getTimesheet } from '../../graphql/queries';
+import { getTimesheet, listTimesheets } from '../../graphql/queries';
+import { TimecardService } from '../timecard/timecard.service';
+import { Timecard } from '../timecard/timecard';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +14,7 @@ export class TimesheetService {
 
   currentTimesheetObservable: Subject<Timesheet> = new Subject();
   constructor(
+    private timecardService: TimecardService
   ) { }
 
   async generateTimesheet(id: string, title: string): Promise<boolean> {
@@ -39,9 +42,15 @@ export class TimesheetService {
   }
 
   parseDataToTimesheet(rawItem: any): Timesheet {
+    let timecards: Timecard[];
     const id = rawItem.id;
     const title = rawItem.title;
-    return new Timesheet(id, title);
+    if (rawItem.timecards) {
+      timecards = this.timecardService.parseDataToTimecards(rawItem.timecards.items);
+    } else {
+      timecards = [];
+    }
+    return new Timesheet(id, title, timecards);
   }
 
   getTimesheet(): Observable<Timesheet> {

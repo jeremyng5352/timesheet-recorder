@@ -42,7 +42,6 @@ export class TimecardFormComponent implements OnInit {
       formValue.title,
       formValue.startDateTime,
     ).then((response) => {
-      console.log(response);
       if ( response === true) {
         this.isLoading = false;
         this.isFormShown = false;
